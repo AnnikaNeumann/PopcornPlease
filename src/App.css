@@ -1,38 +1,20 @@
-.App {
-  text-align: center;
+
+.popcorn{
+  background-image: url("../src/assets/Popcorn.jpeg");
+  background: white;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size:cover;
+  position:relative;
+  opacity: 70%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero-text{
+  position: absolute;
+  top: 47%;
+  left: 28%;
+  font-size: 2vw;
+  color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
