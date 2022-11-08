@@ -10,11 +10,13 @@
   opacity: 70%;
 }
 
-.hero-text{
+.title{
   position: absolute;
-  top: 47%;
-  left: 28%;
-  font-size: 2vw;
+  top: 43%;
+  left: 27%;
+  font-size: 1vw;
   color: black;
+  /* brings title to the front */
+  z-index: 1; 
 }
 
