@@ -10,10 +10,20 @@
   opacity: 70%;
 }
 
-.title{
+.title1{
   position: absolute;
-  top: 43%;
-  left: 27%;
+  top: 8%;
+  left: 20%;
+  font-size: 1.5vw;
+  color: black;
+  /* brings title to the front */
+  z-index: 1; 
+}
+
+.title2{
+  position: absolute;
+  top: 25%;
+  left: 38%;
   font-size: 1vw;
   color: black;
   /* brings title to the front */
