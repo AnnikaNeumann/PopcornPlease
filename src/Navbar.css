@@ -1,16 +1,8 @@
 
-  
-  /* Position the navbar container inside the image */
-  .container {
-    position: absolute;
-    margin: 30px;
-    width: auto;
-  }
-  
   /* The navbar */
   .topnav {
     overflow: hidden;
-    background-color: #333;
+    margin-left: 25%;
   }
   
   /* Navbar links */
@@ -18,9 +10,7 @@
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
-    font-size: 20px;
   }
   
   .topnav a:hover {
@@ -28,20 +18,17 @@
     color: black;
   }
 
-  .topnav {
-    overflow: hidden;
-    background-color: #e9e9e9;
-  }
   
   /* Style the links inside the navigation bar */
   .topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
+    
+    display:grid;
+    color: white;
+    margin-top: 3%;
+    padding: 50px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 1vw;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
   }
   
   /* Change the color of links on hover */
@@ -52,7 +39,7 @@
   
   /* Style the "active" element to highlight the current page */
   .topnav a.active {
-    background-color: #2196F3;
+    background-color: rgb(5, 15, 47);
     color: white;
   }
   

@@ -1,0 +1,27 @@
+/* placeholder not screen reader friendly, so add label to reader to tell user what input field is for */
+/* placeholder hidden for everyone else */
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1vw;
+}
+
+form{
+    margin-left: 75%;
+    margin-top: -3%;
+}
+
+input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1vw;
+}

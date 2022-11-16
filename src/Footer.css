@@ -1,12 +1,13 @@
 .main-footer{
-    color: black;
-    background-color: rgb(242, 74, 74);
+    color: rgb(238, 223, 223);
+    background-color: rgb(17, 16, 15);
     padding: 1%;
     position: bottom;
     position: sticky;
     width:100%;
     font-size:1.15vw;
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 li{
