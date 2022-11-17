@@ -22,7 +22,6 @@
   /* Style the links inside the navigation bar */
   .topnav a {
     
-    display:grid;
     color: white;
     margin-top: 3%;
     padding: 50px;
@@ -39,9 +38,18 @@
   
   /* Style the "active" element to highlight the current page */
   .topnav a.active {
-    background-color: rgb(5, 15, 47);
+    background-color: rgb(1,9,33);
     color: white;
   }
+
+  .popcorn{
+    height: 8%;
+    width: 8%;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 10%;
+  }
+ 
   
 
 

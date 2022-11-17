@@ -1,6 +1,6 @@
 body{
 
-  background-color: rgb(5, 15, 47);
+  background-color: rgb(1, 9, 33);
 }
 
 .hero{
@@ -22,7 +22,7 @@ body{
   font-size: 1vw;
 }
 .skip-to-main-content-link:focus {
-  left: 10%;
+  left: 50%;
   transform: translateX(-40%);
   opacity: 1;
 }
