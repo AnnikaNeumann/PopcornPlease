@@ -1,61 +1,68 @@
 import './App.css';
 import React from 'react';
 import {useState} from 'react';
-// import {BrowserRouter as Router} from 'react-router-dom';
+import axios from 'axios';
 
+// import {BrowserRouter as Router} from 'react-router-dom';
 import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Search from './components/search';
+import Search from './components/Search';
+import Movies from './components/Movies';
 
 
-const posts = [
-  { id: '1', name: 'No results for Titanic' },
-  { id: '2', name: 'Forrest Gump' },
-  { id: '3', name: 'The Neverending Story' },
-  { id: '4', name: 'Die Hard' },
-];
-
-const filterPosts = (posts, query) => {
-  if (!query) {
-    return posts;
-  }
-
-  return posts.filter((post) =>{
-    const postName = post.name.toLowerCase();
-    return postName.includes(query);
+function App () {  
+  const [state, setState] =useState({
+    s: "",
+    movies: [],
+    selected: {}
   });
 
-}
+  const apiurl = "https://www.omdbapi.com/?i=tt3896198&apikey=23c8d5ea";
 
 
-function App() {
+  const search = (e) => {
+    if (e.key === "Enter"){
+    // "&s="" is how we search on an open movie db plus our state query
+    
+      axios(apiurl + "&s=" + state.s)
+      .then((data) => {
+      let movies = data.Search;
 
-  // filter list based on search, search bar leads to new url
-  const {search} = window.location;
-  const query = new URLSearchParams(search).get('s');
-  // start filtering as user types
-  const [searchQuery, setSearchQuery] = useState(query || '');
-  const filteredPosts = filterPosts(posts, searchQuery);
+      setState(prevState =>{
+        return{...prevState, movies: movies}
+      })
+      });
+    }
+  }
+
+  const handleInput = (e) =>{
+    let s = e.target.value; 
+
+    setState(prevState =>{
+      return {...prevState, s:s}
+    });
+
+    console.log(state.s);
+
+  }
 
   return (
     <>
-    <Navbar/>
+    <header><h1>Movie Database</h1></header>
 
-    {/* use search query and filter function to render post matching search */}
-    <div>
-    <Search
-      searchQuery={searchQuery}
-      setSearchQuery={setSearchQuery}
-    />
-      
-    <ul>{filteredPosts.map(post =>(
-      <li key ={post.key}>{post.name}</li>
-      ))}
-      </ul>
-    </div>
+    <div className='App'>
+  
+    <Navbar/>  
+    <main>  
+    <Search handleInput={handleInput} search={search}/>
+    <Movies movies={state.movies}/>
+    </main>
     <Homepage/>
+  
+
     <Footer/>
+    </div>
     </>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Homepage = () => {
 
     return (
@@ -9,7 +8,6 @@ const Homepage = () => {
       </>
     );
   }
-
 
 
 

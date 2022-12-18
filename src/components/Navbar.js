@@ -5,15 +5,14 @@ const Navbar = () => {
 
     return (
         <>
-        <a href="#main" class="skip-to-main-content-link">Skip to main content</a> 
+        <a href="#main" className="skip-to-main-content-link">Skip to main content</a> 
         
-    <div class="topnav">
+    <div className="topnav">
     
      <a href="#home">Home</a>
      {/* <FontAwesomeIcon icon="fa-light fa-popcorn" /> */}
      <a href="favorites">My Favorites</a>
-        <a href="#eighties">80s Movies</a>
-        <a href="#nineties">90s Movies</a>
+      
         <a href="#about">About Popcorn</a> 
     </div>
     </>
