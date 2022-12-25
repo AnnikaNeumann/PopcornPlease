@@ -2,6 +2,8 @@ import React from "react";
 
 function Movie ({movie}){
 
+    
+
     return(
         <div className="movie">
             <img src={movie.Poster} />

@@ -22,19 +22,23 @@ function App () {
 
 
   const search = (e) => {
+    
     if (e.key === "Enter"){
     // "&s="" is how we search on an open movie db plus our state query
     
       axios(apiurl + "&s=" + state.s)
-      .then((data) => {
-      let movies = data.Search;
+      .then(( {data} ) => {
+        console.log(data)
+      let movie = data.Search;
+
 
       setState(prevState =>{
-        return{...prevState, movies: movies}
+        return{...prevState, movies: movie}
       })
       });
     }
   }
+
 
   const handleInput = (e) =>{
     let s = e.target.value; 

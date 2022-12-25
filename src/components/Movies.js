@@ -1,13 +1,15 @@
 import React from "react";
 import Movie from "./Movie";
 
-function Movies ( movies) {
+function Movies ({ movies }) {
+
+    
     return(
 
         <section className="movies">
             {movies.map(movie => (
-                <Movie movie={movie}/>
-                ))}
+                <Movie key={movie.imdbID} movie={movie}/>
+                ))};
 
         </section>
 
@@ -15,11 +17,6 @@ function Movies ( movies) {
 }
 
     
-
-
-
-
-
 
 
 export default Movies;

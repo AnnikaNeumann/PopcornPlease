@@ -75,7 +75,15 @@ section{
 }
   
 
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px, -15px;
+}
 
 
-
-
+.movies.movie{
+  width: 35%;
+  min-width: 250px;
+  padding: 15px;
+}
