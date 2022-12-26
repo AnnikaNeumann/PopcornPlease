@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-     
+  box-sizing: border-box;  
 }
 
 body{
@@ -11,7 +10,7 @@ body{
 }
 
 header{
-  padding: 50px 15px 0px;
+  padding: 50px 20px 0px;
 }
 
 header h1{
@@ -23,13 +22,14 @@ header h1{
 
 main{
   width: 100%;
-  max-width: 700px;
+  max-width: 960px;
   margin: 0 auto;
 
 }
 
 section{
-  padding: 30px;
+  padding: 10px;
+  max-width: 100%;
 }
 
 .searchbox{
@@ -50,13 +50,13 @@ section{
 .searchbox:focus{
   box-shadow: 0 0 8 3 #4484C4;
 }
-.hero{
+/* .hero{
   height: 30cm;
   position:relative;
   margin-top: 10%;
   margin-bottom: 10%;
   left: 10%;
-}
+} */
 
 .skip-to-main-content-link {
   position: absolute;
@@ -78,12 +78,115 @@ section{
 .movies{
   display: flex;
   flex-wrap: wrap;
-  margin: 0px, -15px;
+  margin: 0px, 30px;
 }
 
 
-.movies.movie{
-  width: 35%;
+.movies .movie{
+  width: 50%;
   min-width: 250px;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 25%;
+}
+
+.movies .movie img{
+  display: flex;
+  width: 100%;
+  border-radius: 8%;
+}
+
+.movies .movie h3{
+  color: #FFF;
+  font-size: 30px;
+  padding: 20px;
+  font-weight: 600;
+  background: #445565;
+  flex: 1 1 1 100%;
+  transition: 7s ease-out;
+}
+
+.movies .movie:hover h3{
+  background: #FFF;
+  color: #223343;
+}
+
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+  background-color: rgb(1, 9, 33);
+
+	overflow-y: scroll;
+}
+
+.popup .content {
+	display: block;
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 25px;
+
+	color: #FFF;
+}
+
+.popup .content h2 {
+	font-size: 40px;
+	font-weight: 600;
+}
+.popup .content h2 span {
+	font-weight: 300;
+	font-size: 20px;
+  font-size: 30px;
+}
+
+.popup .content .rating {
+	margin-bottom: 30px;
+  font-size: 30px;
+  padding: 2%;
+}
+
+.popup .content .plot {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px -15px 30px;
+  font-size: 30px;
+}
+
+.popup .content .plot img {
+	flex: 1 1 30% 1;
+	max-width: 600px;
+	padding: 0px 15px;
+  border-radius: 8%;
+}
+
+.popup .content .plot p {
+	flex: 1 1 60%;
+	padding: 15px;
+  font-size: 35px;
+}
+
+.popup .content .close {
+	display: inline-block;
+	padding: 15px 30px;
+	font-size: 30px;
+	font-weight: 700;
+
+	background: #235c95;
+	color: #FFF;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+
+	transition: 0.4s ease-out;
+}
+
+.popup .content .close:hover {
+	background: #223343;
 }

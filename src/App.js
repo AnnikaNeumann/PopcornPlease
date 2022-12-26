@@ -4,12 +4,12 @@ import {useState} from 'react';
 import axios from 'axios';
 
 // import {BrowserRouter as Router} from 'react-router-dom';
-import Homepage from './components/Homepage';
+// import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Movies from './components/Movies';
-
+import Popup from './components/Popup';
 
 function App () {  
   const [state, setState] =useState({
@@ -18,8 +18,7 @@ function App () {
     selected: {}
   });
 
-  const apiurl = "https://www.omdbapi.com/?i=tt3896198&apikey=23c8d5ea";
-
+  const apiurl = "http://www.omdbapi.com/?apikey=23c8d5ea";
 
   const search = (e) => {
     
@@ -40,16 +39,35 @@ function App () {
   }
 
 
+
   const handleInput = (e) =>{
     let s = e.target.value; 
 
     setState(prevState =>{
       return {...prevState, s:s}
     });
-
-    console.log(state.s);
-
   }
+
+    // console.log(state.s);
+
+    const openPopup = id =>{
+      axios(apiurl + "&id=" + id)
+      .then(({data}) => {
+        let movie = data;
+
+        setState(prevState =>{
+          return{...prevState, selected: movie}
+        });
+      });
+    }
+  
+
+    const closePopup = () => {
+      setState(prevState => {
+        return { ...prevState, selected: {} }
+      });
+    }
+
 
   return (
     <>
@@ -60,15 +78,18 @@ function App () {
     <Navbar/>  
     <main>  
     <Search handleInput={handleInput} search={search}/>
-    <Movies movies={state.movies}/>
+    <Movies movies={state.movies} openPopup={openPopup} />
+
+    {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
     </main>
-    <Homepage/>
+    {/* <Homepage/> */}
   
 
     <Footer/>
     </div>
     </>
   );
+
 }
 
 export default App;

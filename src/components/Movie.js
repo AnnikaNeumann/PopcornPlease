@@ -1,11 +1,11 @@
 import React from "react";
 
-function Movie ({movie}){
+function Movie ({movie, openPopup}){
 
     
 
     return(
-        <div className="movie">
+        <div className="movie" onClick={() => openPopup(movie.imdbID)}>
             <img src={movie.Poster} />
             <h3>{movie.Title}</h3>
         </div>
