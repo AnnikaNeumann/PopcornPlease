@@ -4,6 +4,7 @@
     padding: 1%;
     position: bottom;
     position: sticky;
+    position: relative;
     width:100%;
     font-size:1.15vw;
     text-align: center;

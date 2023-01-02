@@ -11,7 +11,7 @@ const Navbar = () => {
     
      <a href="#home">Home</a>
      {/* <FontAwesomeIcon icon="fa-light fa-popcorn" /> */}
-     <a href="favorites">My Favorites</a>
+     <a href="#favorites">My Favorites</a>
       
         <a href="#about">About Popcorn</a> 
     </div>

@@ -4,7 +4,7 @@ import {useState} from 'react';
 import axios from 'axios';
 
 // import {BrowserRouter as Router} from 'react-router-dom';
-// import Homepage from './components/Homepage';
+import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
@@ -18,8 +18,10 @@ function App () {
     selected: {}
   });
 
-  const apiurl = "http://www.omdbapi.com/?apikey=23c8d5ea";
+  const apiurl = "http://www.omdbapi.com/?s=&apikey=23c8d5ea";
 
+  // I do get results for the searched movies, pop ups would show Guardians of the Galaxy Plot only.
+  // With url above I do get results for searched Avengers, so somehow need to get imdbID for each listed movie to show poster and plot correctly
   const search = (e) => {
     
     if (e.key === "Enter"){
@@ -36,6 +38,7 @@ function App () {
       })
       });
     }
+    
   }
 
 
@@ -48,12 +51,14 @@ function App () {
     });
   }
 
-    // console.log(state.s);
+    console.log(state.s);
 
-    const openPopup = id =>{
-      axios(apiurl + "&id=" + id)
+    const openPopup = id => {
+      axios(apiurl + "&i=" + id)
       .then(({data}) => {
         let movie = data;
+
+        console.log(movie);
 
         setState(prevState =>{
           return{...prevState, selected: movie}
@@ -82,9 +87,9 @@ function App () {
 
     {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
     </main>
-    {/* <Homepage/> */}
+    
+    <Homepage/>
   
-
     <Footer/>
     </div>
     </>

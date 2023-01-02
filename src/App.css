@@ -83,13 +83,15 @@ section{
 
 
 .movies .movie{
-  width: 50%;
+  width: 40%;
   min-width: 250px;
   padding: 15px;
-  display: flex;
-  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-direction: row;
   cursor: pointer;
   border-radius: 25%;
+
+
 }
 
 .movies .movie img{
