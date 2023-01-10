@@ -9,12 +9,14 @@ function Movies ({ movies, openPopup }) {
             {movies && movies.map(movie => (
                 <Movie key={movie.imdbID} movie={movie} openPopup={openPopup}/>
                 ))};
+                {/* <button onClick={() => addToFavorites(movies)}>Add to Favorites</button>  */}
 
         </section>
 
     )
 }
-
+ 
+// function maps through movies result and generate a pop up for the required imdb id
     
 
 

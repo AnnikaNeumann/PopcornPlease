@@ -4,24 +4,26 @@ import {useState} from 'react';
 import axios from 'axios';
 
 // import {BrowserRouter as Router} from 'react-router-dom';
-import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Movies from './components/Movies';
 import Popup from './components/Popup';
 
+//create useState for movies
 function App () {  
   const [state, setState] =useState({
-    s: "",
-    movies: [],
+    s: "", //search
+    movies: [], //results
     selected: {}
   });
 
+  //create useState for favorites 
+  // const [favorite, setFavorite] = useState ([]);
+
   const apiurl = "http://www.omdbapi.com/?s=&apikey=23c8d5ea";
 
-  // I do get results for the searched movies, pop ups would show Guardians of the Galaxy Plot only.
-  // With url above I do get results for searched Avengers, so somehow need to get imdbID for each listed movie to show poster and plot correctly
+  //anonymus search function, checks api url based on our searched movie. 
   const search = (e) => {
     
     if (e.key === "Enter"){
@@ -41,11 +43,16 @@ function App () {
     
   }
 
+  // const addToFavorites = (movies) =>{
+  //   setFavorites([...favorites, movies])
+  //   console.log("my favorites")
+  // }
 
 
   const handleInput = (e) =>{
     let s = e.target.value; 
 
+    //setting state of the movies we search for
     setState(prevState =>{
       return {...prevState, s:s}
     });
@@ -53,6 +60,7 @@ function App () {
 
     console.log(state.s);
 
+    //pop up function gets the data of the movie by checking the api and the movie's id.
     const openPopup = id => {
       axios(apiurl + "&i=" + id)
       .then(({data}) => {
@@ -60,13 +68,15 @@ function App () {
 
         console.log(movie);
 
+        //setting the state of the selected movie
         setState(prevState =>{
           return{...prevState, selected: movie}
         });
       });
     }
   
-
+    
+//close pop up function and setting state of previous selected movies (on click brings us back to search page)
     const closePopup = () => {
       setState(prevState => {
         return { ...prevState, selected: {} }
@@ -76,6 +86,7 @@ function App () {
 
   return (
     <>
+
     <header><h1>Movie Database</h1></header>
 
     <div className='App'>
@@ -84,12 +95,14 @@ function App () {
     <main>  
     <Search handleInput={handleInput} search={search}/>
     <Movies movies={state.movies} openPopup={openPopup} />
-
+    
+    {/* addToFavorites={addToFavorites}
+    <button onClick={() => addToFavorites(movies)}>
+                  Add to favorites
+                </button> */}
     {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
     </main>
-    
-    <Homepage/>
-  
+      
     <Footer/>
     </div>
     </>

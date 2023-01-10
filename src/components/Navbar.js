@@ -9,7 +9,7 @@ const Navbar = () => {
         
     <div className="topnav">
     
-     <a href="#home">Home</a>
+     {/* <a href="#home">Home</a> */}
      {/* <FontAwesomeIcon icon="fa-light fa-popcorn" /> */}
      <a href="#favorites">My Favorites</a>
       
