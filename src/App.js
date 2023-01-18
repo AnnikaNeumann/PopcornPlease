@@ -3,12 +3,16 @@ import React from 'react';
 import {useState} from 'react';
 import axios from 'axios';
 
-// import {BrowserRouter as Router} from 'react-router-dom';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Movies from './components/Movies';
 import Popup from './components/Popup';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from './components/About';
+import Favorites from './components/Favorites';
+
+
 
 //create useState for movies
 function App () {  
@@ -90,9 +94,15 @@ function App () {
     <header><h1>Movie Database</h1></header>
 
     <div className='App'>
-  
+    <Router>
     <Navbar/>  
+    <Routes>
+    <Route exact path='/Favorites' Favorites={Favorites} />
+    <Route exact path='/About' About={About} />
+    </Routes>
+    </Router>
     <main>  
+
     <Search handleInput={handleInput} search={search}/>
     <Movies movies={state.movies} openPopup={openPopup} />
     
@@ -102,9 +112,11 @@ function App () {
                 </button> */}
     {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
     </main>
-      
+
     <Footer/>
+    
     </div>
+    
     </>
   );
 
