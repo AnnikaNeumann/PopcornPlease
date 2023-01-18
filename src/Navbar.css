@@ -2,14 +2,16 @@
   /* The navbar */
   .navbar {
     overflow: hidden;
-    margin-left: 25%;
+    margin-left: 5%;
+    margin-top: -6%;
+    padding-bottom: 5%;
   }
   
   /* Navbar links */
   .navbar a {
     float: left;
     color: #f2f2f2;
-    text-align: center;
+    /* text-align: center; */
     text-decoration: none;
   }
   
@@ -24,8 +26,9 @@
     
     color: white;
     margin-top: 3%;
-    padding: 50px;
+    padding: 30px;
     text-decoration: none;
+    border-radius: 8%;
     font-size: 1vw;
     font-family:Verdana, Geneva, Tahoma, sans-serif
   }

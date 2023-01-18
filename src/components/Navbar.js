@@ -12,7 +12,8 @@ const Navbar = () => {
                 <div className="navbar">
                 {/* <li><a href="#My Favorites" className="Favorites">My Favorites</a></li>
                 <li><a href="#About Popcorn" className="About">About Popcorn</a></li> */}
-                <Link to='/Favorites'>My Favorites</Link>
+                <link rel="shortcut icon" href="https://icons8.com/icons/set/favicon-film"></link>
+<Link to='/Favorites'>My Favorites</Link>
                 <Link to='/About'>About Popcorn</Link>
                 </div>
             </ul>
