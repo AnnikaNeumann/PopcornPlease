@@ -1,16 +1,17 @@
 import './App.css';
+import './components/Navbar.css'
 import React from 'react';
 import {useState} from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Link, Route,Routes } from 'react-router-dom';
 
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Movies from './components/Movies';
 import Popup from './components/Popup';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from './components/About';
 import Favorites from './components/Favorites';
+import Footer from './components/Footer';
 
 
 
@@ -87,39 +88,38 @@ function App () {
       });
     }
 
+    
 
   return (
     <>
-
     <header><h1>Movie Database</h1></header>
-
-    <div className='App'>
     <Router>
-    <Navbar/>  
+      <div className='App'>
+          <ul className="navbar">
+            <li><Link to='/App'target="_blank" rel="noopener noreferrer">Home</Link></li>
+            <li><Link to='/Favorites' target="_blank" rel="noopener noreferrer">My Favorites</Link></li>
+            <li><Link to='/About' target="_blank" rel="noopener noreferrer">About Popcorn</Link></li> 
+          </ul> 
+
+    {/* <Navbar/>   */}
     <Routes>
-    <Route exact path='/Favorites' Favorites={Favorites} />
-    <Route exact path='/About' About={About} />
+    {/* <Route exact path='/' App={< Home />}></Route> */}
+    <Route exact path='/Favorites' Favorites={< Favorites />}></Route>
+    <Route exact path='/About' About={< About />}></Route>
     </Routes>
+    </div>
     </Router>
+
     <main>  
 
     <Search handleInput={handleInput} search={search}/>
     <Movies movies={state.movies} openPopup={openPopup} />
     
-    {/* addToFavorites={addToFavorites}
-    <button onClick={() => addToFavorites(movies)}>
-                  Add to favorites
-                </button> */}
     {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
     </main>
-
     <Footer/>
-    
-    </div>
-    
     </>
   );
-
-}
+  }
 
 export default App;

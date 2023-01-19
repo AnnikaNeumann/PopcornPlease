@@ -5,6 +5,8 @@ const favorites = () =>{
     return (
 
         <h1>Find your favorite movies here</h1>
+
+        
     )
 }
 
