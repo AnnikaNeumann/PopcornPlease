@@ -2,9 +2,9 @@
   /* The navbar */
   .navbar {
     overflow: hidden;
-    margin-left: 4%;
-    margin-top: -6%;
-    padding-bottom: 5%;
+    margin-left: 0;
+    margin-top: 0;
+    padding-bottom: 0;
   }
   
   /* Navbar links */

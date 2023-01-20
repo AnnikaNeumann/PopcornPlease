@@ -6,7 +6,7 @@
 
 body{
  
-  background-image: url('assets/jackTorrence.jpeg');
+  background-image: url(/Users/annikaneumann/Desktop/MovieApp/popcorn-please/src/assets/jackTorrence.jpeg);
   background-position-x: center;
   background-repeat:no-repeat;
   background-size: cover;
@@ -126,7 +126,7 @@ section{
 	width: 100vw;
 	height: 100vh;
   /* background-color: rgb(1, 9, 33); */
-  background-image: url('assets/theatre_curtain1.jpeg');
+  background-image: url(/Users/annikaneumann/Desktop/MovieApp/popcorn-please/src/assets/theatre_curtain.jpeg);
   background-position-x: center;
   background-repeat:no-repeat;
   background-size: cover;

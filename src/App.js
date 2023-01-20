@@ -1,18 +1,16 @@
-import './App.css';
-import './components/Navbar.css'
+import './components/css/App.css';
+import './components/css/Navbar.css'
 import React from 'react';
 import {useState} from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Link, Route,Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 // import Navbar from './components/Navbar';
-import Search from './components/Search';
-import Movies from './components/Movies';
-import Popup from './components/Popup';
+import Home from './components/Home';
 import About from './components/About';
 import Favorites from './components/Favorites';
-import Footer from './components/Footer';
-
+import Layout from './components/Layout';
 
 
 //create useState for movies
@@ -88,36 +86,19 @@ function App () {
       });
     }
 
-    
-
   return (
     <>
-    <header><h1>Movie Database</h1></header>
-    <Router>
       <div className='App'>
-          <ul className="navbar">
-            <li><Link to='/App'target="_blank" rel="noopener noreferrer">Home</Link></li>
-            <li><Link to='/Favorites' target="_blank" rel="noopener noreferrer">My Favorites</Link></li>
-            <li><Link to='/About' target="_blank" rel="noopener noreferrer">About Popcorn</Link></li> 
-          </ul> 
-
-    {/* <Navbar/>   */}
-    <Routes>
-    {/* <Route exact path='/' App={< Home />}></Route> */}
-    <Route exact path='/Favorites' Favorites={< Favorites />}></Route>
-    <Route exact path='/About' About={< About />}></Route>
-    </Routes>
-    </div>
-    </Router>
-
-    <main>  
-
-    <Search handleInput={handleInput} search={search}/>
-    <Movies movies={state.movies} openPopup={openPopup} />
-    
-    {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
-    </main>
-    <Footer/>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home movies={state.movies} openPopup={openPopup} handleInput={handleInput} search={search} state={state} closePopup={closePopup}/>}></Route>
+              <Route path='/favorites' element={<Favorites />}></Route>
+              <Route path='/about' element={<About />}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+       </div>
     </>
   );
   }
